@@ -16,3 +16,14 @@ sudoku.c:55:9: error: variable 'fila' set but not used [-Werror=unused-but-set-v
          ^~~~
 cc1.exe: all warnings being treated as errors
 f6463c6
+Wed, May 14, 2025  9:47:13 PM: 
+ sudoku.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:71:13: error: implicit declaration of function 'insert' [-Werror=implicit-function-declaration]
+             insert(list, new);
+             ^~~~~~
+cc1.exe: all warnings being treated as errors
+f66235f
