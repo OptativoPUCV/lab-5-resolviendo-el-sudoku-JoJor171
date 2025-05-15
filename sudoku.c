@@ -60,14 +60,14 @@ List* get_adj_nodes(Node* n){
                 col = j;
                 break;
             }
-        }
-      if (col == -1) return list;
+        } 
     }
-    
+    if (col == -1 || fila == -1) return list;
 
     for (int i = 1; i <= 9; i++){
         Node* new = copy(n);
         new->sudo[fila][col] = i;
+        
         if (is_valid(new)){
             pushBack(list, new);
         }
