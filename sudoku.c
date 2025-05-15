@@ -53,7 +53,7 @@ List* get_adj_nodes(Node* n){
     List* list = createList();
 
     int fila = -1 , col = -1;
-    for (int i = 0; i < 9; i++){
+    for (int i = 0; i < 9 && fila == -1; i++){
         for (int j = 0; j < 9; j++){
             if (n->sudo[i][j] == 0){
                 fila = i;
@@ -67,7 +67,7 @@ List* get_adj_nodes(Node* n){
     for (int i = 1; i <= 9; i++){
         Node* new = copy(n);
         new->sudo[fila][col] = i;
-        
+
         if (is_valid(new)){
             pushBack(list, new);
         }
