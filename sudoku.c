@@ -68,7 +68,7 @@ List* get_adj_nodes(Node* n){
         Node* new = copy(n);
         new->sudo[fila][col] = i;
         if (is_valid(new)){
-            insert(list, new);
+            pushBack(list, new);
         }
         else{
             free(new);
