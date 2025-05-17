@@ -44,6 +44,34 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+    int vistos[10];
+
+    //FILAS
+    for (int i = 0; i < 9; i++){
+        for (int j = 0; j < 10; j++){
+            vistos[j] = 0;
+        }
+        for (int j = 0; j < 9; j++){
+            if (n->sudo[i][j] != 0){
+                if (vistos[n->sudo[i][j]] == 1) return 0;
+                vistos[n->sudo[i][j]] = 1;
+            }
+        }
+    }
+
+    //COLUMNAS
+    for (int i = 0; i < 9; i++){
+        for (int j = 0; j < 10; j++){
+            vistos[j] = 0;
+        }
+        for (int j = 0; j < 9; j++){
+            if (n->sudo[j][i] != 0){
+                if (vistos[n->sudo[j][i]] == 1) return 0;
+                vistos[n->sudo[j][i]] = 1;
+            }
+        }
+    }
+
 
     return 1;
 }
@@ -76,9 +104,8 @@ List* get_adj_nodes(Node* n){
         }
     }
   
-    return list;
+    return list;    
 }
-
 
 int is_final(Node* n){
     return 0;
@@ -90,7 +117,7 @@ Node* DFS(Node* initial, int* cont){
 
 
 
-/*
+
 int main( int argc, char *argv[] ){
 
   Node* initial= read_file("s12a.txt");;
@@ -101,4 +128,4 @@ int main( int argc, char *argv[] ){
   print_node(final);
 
   return 0;
-}*/
+}
