@@ -72,6 +72,24 @@ int is_valid(Node* n){
         }
     }
 
+    //SUBMATRICES
+    for (int i = 0; i < 9; i+=3){
+        for (int j = 0; j < 9; j+=3){
+            for (int k = 0; k < 10; k++){
+                vistos[k] = 0;
+            }
+            for (int k = i; k < i+3; k++){
+                for (int l = j; l < j+3; l++){
+                    if (n->sudo[k][l] != 0){
+                        if (vistos[n->sudo[k][l]] == 1) return 0;
+                        vistos[n->sudo[k][l]] = 1;
+                    }
+                }
+            }
+        }
+    }
+
+
 
     return 1;
 }
